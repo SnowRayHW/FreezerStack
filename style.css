@@ -234,7 +234,7 @@ section.shopping .sub, section.library .sub { color: var(--ink-soft); font-size:
   gap: 10px;
   font-size: 14px;
 }
-.shopping-list li label { display: flex-direction: column; align-items: baseline; gap: 10px; cursor: pointer; width: 100%; }
+.shopping-list li label { display: flex; flex-direction: column; align-items: baseline; gap: 10px; cursor: pointer; width: 100%; }
 .shopping-list li input[type="checkbox"] { accent-color: var(--rust); width: 16px; height: 16px; flex-shrink: 0; }
 .shopping-list li.checked label { color: var(--ink-soft); text-decoration: line-through; opacity: 0.6; }
 .shopping-list .qty { font-family: var(--font-mono); color: var(--ink-soft); font-size: 12px; margin-left: auto; white-space: nowrap; }
