@@ -150,7 +150,12 @@ nav.site-nav a:hover { color: var(--ink); }
    freeze badge is present on a given block. */
 .meal-block .day-label {
   position: absolute;
-  top: 14px; left: 14px;
+  top: 14px; 
+  left: 14px;
+  right: 44px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.08em;
