@@ -112,6 +112,7 @@ nav.site-nav a:hover { color: var(--ink); }
 }
 .shuffle-btn:hover { background: var(--rust); }
 .shuffle-btn:active { transform: scale(0.97); }
+
 /* ---------------- block wall (signature element) ---------------- */
 .block-wall {
   display: grid;
@@ -144,16 +145,19 @@ nav.site-nav a:hover { color: var(--ink); }
   z-index: -1;
 }
 .meal-block::after {
+  /* blue frost tint across the whole block, not just the icon — boosted
+     opacity + "overlay" blend so it actually reads against saturated
+     block colours instead of disappearing into them */
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     160deg,
-    rgba(158, 214, 237, 0.35) 0%,
-    rgba(46, 110, 150, 0.18) 55%,
-    rgba(46, 110, 150, 0) 100%
+    rgba(170, 221, 242, 0.55) 0%,
+    rgba(60, 130, 170, 0.32) 55%,
+    rgba(60, 130, 170, 0.05) 100%
   );
-  mix-blend-mode: soft-light;
+  mix-blend-mode: overlay;
   pointer-events: none;
   z-index: -1;
 }
@@ -164,12 +168,12 @@ nav.site-nav a:hover { color: var(--ink); }
    freeze badge is present on a given block. */
 .meal-block .day-label {
   position: absolute;
-  top: 14px; 
+  top: 14px;
   left: 14px;
-  right: 44px;
-  white-space: nowrap;
+  right: 44px;             /* stops long labels ("This week's batch") reaching under the freeze badge */
+  white-space: nowrap;     /* forces one line so it can never wrap down into meal-name's space */
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; /* truncates with … if it still doesn't fit */
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.08em;
@@ -230,9 +234,9 @@ nav.site-nav a:hover { color: var(--ink); }
   animation: slotSpin 0.16s linear infinite;
 }
 @keyframes slotSpin {
-  0%   { transform: translateY(0);    opacity: 1;   filter: blur(0px); }
-  45%  { transform: translateY(-5px); opacity: 0.35; filter: blur(0.5px); }
-  100% { transform: translateY(0);    opacity: 1;   filter: blur(0px); }
+  0%   { transform: translateY(0);    opacity: 1;    filter: blur(0px); }
+  45%  { transform: translateY(-5px); opacity: 0.35;  filter: blur(0.5px); }
+  100% { transform: translateY(0);    opacity: 1;    filter: blur(0px); }
 }
 .meal-block.landed .meal-name {
   animation: slotLand 0.35s cubic-bezier(0.2, 0.8, 0.3, 1.4);
@@ -286,10 +290,19 @@ section.shopping .sub, section.library .sub { color: var(--ink-soft); font-size:
   gap: 10px;
   font-size: 14px;
 }
-.shopping-list li label { display: flex; align-items: baseline; gap: 10px; cursor: pointer; width: 100%; }
-.shopping-list li input[type="checkbox"] { accent-color: var(--rust); width: 16px; height: 16px; flex-shrink: 0; }
+.shopping-list li label { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; width: 100%; }
+.shopping-list li input[type="checkbox"] { accent-color: var(--rust); width: 16px; height: 16px; flex-shrink: 0; margin-top: 3px; }
 .shopping-list li.checked label { color: var(--ink-soft); text-decoration: line-through; opacity: 0.6; }
-.shopping-list .qty { font-family: var(--font-mono); color: var(--ink-soft); font-size: 12px; margin-left: auto; white-space: nowrap; }
+
+/* name sits above qty in their own column, instead of side by side —
+   avoids the overlap that happened when long combined quantities (e.g.
+   "40g + 200g") had no room to wrap in a single-line layout. */
+.qty-line {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.shopping-list .qty { font-family: var(--font-mono); color: var(--ink-soft); font-size: 12px; }
 
 /* ---------------- library ---------------- */
 section.library { padding: 20px 0 70px; border-top: 1px solid var(--line); }
