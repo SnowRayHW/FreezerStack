@@ -120,16 +120,7 @@ function renderWeek(opts) {
   empty.style.display = "none";
 
   const blocks = [];
-
-  // breakfast note block — not randomised, just a reminder, not clickable/rerollable
-  blocks.push(`
-    <div class="meal-block bc-cream" style="cursor:default;">
-      <span class="day-label">Every day</span>
-      <span class="meal-name">Cereal + orange juice</span>
-      <span class="slot-tag">Breakfast</span>
-    </div>
-  `);
-
+   
   // lunch block (batch wrap) — index 0 in the reroll/animate sense
   blocks.push(`
     <div class="meal-block bc-${currentWeek.lunch.blockColor}" data-recipe="${currentWeek.lunch.id}" data-slot-index="0" tabindex="0" role="button" aria-label="View recipe: ${currentWeek.lunch.name}">
