@@ -198,8 +198,10 @@ function renderShoppingList() {
         <li class="${checked ? "checked" : ""}">
           <label>
             <input type="checkbox" data-item="${key}" ${checked ? "checked" : ""} />
+            <div class="qty-line">
             <span>${name}</span>
             <span class="qty">${qtys.join(" + ")}</span>
+            </div>
           </label>
         </li>
       `;
