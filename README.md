@@ -54,8 +54,10 @@ Any recipe carrying one of these tags in its own `tags` array is automatically h
 
 The current week's shuffle and shopping-list checkboxes are saved in the browser's `localStorage`, so they survive a page refresh. There's no backend — it's all client-side.
 
-Ideas to change stuff:
+## Ideas to change stuff
 Make the day tag in style on the block to be all at the same level, similar to the freezer icon.
 Make the reroll button to be built onto the block itself, removing the "reroll _DAY_" string
 Make the blocks Taller (about 1.4x) and wider (about 1.2x) to allow for button and for visual space.
-Make the frozen icon more prominent (1.2x larger) and also add a blue gradient overlay. (I removed the "freezes" wording looks meh) 
+Make the frozen icon more prominent (1.2x larger) and also add a blue gradient overlay. (I removed the "freezes" wording looks meh)
+# BIG ONE
+Make the shuffle like a slot machine animation...
