@@ -127,7 +127,6 @@ function renderWeek() {
     <button class="meal-block bc-${currentWeek.lunch.blockColor}" data-recipe="${currentWeek.lunch.id}">
       <span class="day-label">This week's batch</span>
       <span class="meal-name">${currentWeek.lunch.name}</span>
-      <span class="slot-tag">Lunch${currentWeek.lunch.freezerBlock ? " · freezes" : ""}</span>
       ${currentWeek.lunch.freezerBlock ? '<span class="freeze-mark">❄</span>' : ""}
     </button>
   `);
@@ -137,7 +136,6 @@ function renderWeek() {
       <button class="meal-block bc-${d.blockColor}" data-recipe="${d.id}">
         <span class="day-label">${DAYS[i]}</span>
         <span class="meal-name">${d.name}</span>
-        <span class="slot-tag">Dinner${d.freezerBlock ? " · freezes" : ""}</span>
         ${d.freezerBlock ? '<span class="freeze-mark">❄</span>' : ""}
       </button>
     `);
