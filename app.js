@@ -160,6 +160,61 @@ function renderWeek() {
   });
 }
 
+/* ---------------- ingredient quantity merging ---------------- */
+
+// Units that get a plural "s" when the count isn't 1 — e.g. "clove" -> "cloves".
+// Weight units (g) don't change form, so they're deliberately left out.
+const PLURAL_UNITS = ["clove", "tin", "rasher", "slice", "wrap"];
+
+// Units that sit directly against the number with no space: "200g", not "200 g".
+const NO_SPACE_UNITS = ["g", "kg"];
+
+// "200g" -> { value: 200, unit: "g" }
+// "4 cloves" -> { value: 4, unit: "clove" }   (unit normalised, see below)
+// "6" -> { value: 6, unit: "" }               (bare count, e.g. eggs)
+// "for frying" -> null                        (doesn't start with a digit — can't be summed)
+function parseQty(str) {
+  const match = str.trim().match(/^(\d+(\.\d+)?)\s*(.*)$/);
+  if (!match) return null;
+  return { value: parseFloat(match[1]), unit: normaliseUnit(match[3]) };
+}
+
+// Lowercases and strips a trailing "s", so "Cloves" and "clove" are treated
+// as the same unit when grouping.
+function normaliseUnit(unit) {
+  const lower = unit.trim().toLowerCase();
+  return lower.length > 1 && lower.endsWith("s") ? lower.slice(0, -1) : lower;
+}
+
+// Reverse of normaliseUnit for display — only re-adds "s" for units that
+// are actually in the pluralisable list, and only when the count isn't 1.
+function formatQty(value, unit) {
+  if (!unit) return `${value}`;
+  const displayUnit = value !== 1 && PLURAL_UNITS.includes(unit) ? unit + "s" : unit;
+  const separator = NO_SPACE_UNITS.includes(unit) ? "" : " ";
+  return `${value}${separator}${displayUnit}`;
+}
+
+// Takes every raw qty string collected for one ingredient across the week's
+// recipes, sums the ones that share a unit, and leaves anything unparseable
+// or mismatched exactly as it was — same fallback behaviour as before.
+function mergeQuantities(qtyStrings) {
+  const totals = new Map(); // unit -> running total
+  const leftovers = [];
+
+  qtyStrings.forEach((str) => {
+    const parsed = parseQty(str);
+    if (!parsed) {
+      leftovers.push(str);
+      return;
+    }
+    totals.set(parsed.unit, (totals.get(parsed.unit) || 0) + parsed.value);
+  });
+
+  const summed = [...totals.entries()].map(([unit, total]) => formatQty(total, unit));
+  return [...summed, ...leftovers].join(" + ");
+}
+
 /* ---------------- rendering: shopping list ---------------- */
 function renderShoppingList() {
   const list = document.getElementById("shopping-list");
@@ -191,7 +246,7 @@ function renderShoppingList() {
             <input type="checkbox" data-item="${key}" ${checked ? "checked" : ""} />
             <div class="qty-line">
             <span>${name}</span>
-            <span class="qty">${qtys.join(" + ")}</span>
+            <span class="qty">${mergeQuantities(qtys)}</span>
             </div>
           </label>
         </li>
