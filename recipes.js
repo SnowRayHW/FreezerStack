@@ -41,7 +41,7 @@ const RECIPES = [
     freezerBlock: true,
     blurb: "The original — a big batch of smooth blended sauce, frozen in blocks, cut fresh chicken to match each night.",
     ingredients: [
-      { name: "Passata", qty: "1.5L" },
+      { name: "Passata", qty: "1500g" },
       { name: "Tomato purée", qty: "2 tbsp" },
       { name: "Onion", qty: "2" },
       { name: "Garlic", qty: "4 cloves" },
@@ -69,9 +69,9 @@ const RECIPES = [
     freezerBlock: true,
     blurb: "A white sauce block — garlicky, rich, freezes just as well as the tomato one.",
     ingredients: [
-      { name: "Double cream", qty: "600ml" },
+      { name: "Double cream", qty: "600g" },
       { name: "Garlic", qty: "5 cloves" },
-      { name: "Chicken stock", qty: "200ml" },
+      { name: "Chicken stock", qty: "200g" },
       { name: "Parmesan", qty: "80g" },
       { name: "Butter", qty: "30g" },
       { name: "Chicken breast", qty: "2" },
@@ -95,7 +95,7 @@ const RECIPES = [
     blurb: "Basil pesto loosened with cream, no chunky veg anywhere in it.",
     ingredients: [
       { name: "Basil pesto (jar or homemade)", qty: "200g" },
-      { name: "Double cream", qty: "150ml" },
+      { name: "Double cream", qty: "150g" },
       { name: "Parmesan", qty: "50g" },
       { name: "Chicken breast", qty: "2" },
       { name: "Pasta", qty: "150g" },
@@ -117,7 +117,7 @@ const RECIPES = [
     blurb: "Classic mince bolognese, blended smooth before freezing so there's no chunky tomato texture.",
     ingredients: [
       { name: "Beef or chicken mince", qty: "500g" },
-      { name: "Passata", qty: "700ml" },
+      { name: "Passata", qty: "700g" },
       { name: "Onion", qty: "1" },
       { name: "Garlic", qty: "3 cloves" },
       { name: "Beef stock cube", qty: "1" },
@@ -145,7 +145,7 @@ const RECIPES = [
       { name: "Butter", qty: "40g" },
       { name: "Lemon", qty: "1" },
       { name: "Garlic", qty: "2 cloves" },
-      { name: "Chicken stock", qty: "100ml" },
+      { name: "Chicken stock", qty: "100g" },
       { name: "Pasta", qty: "150g" },
     ],
     steps: [
@@ -165,7 +165,7 @@ const RECIPES = [
     blurb: "A smooth cheese sauce block with bacon bits stirred through — bake it off or just melt through the pan.",
     ingredients: [
       { name: "Cheddar", qty: "200g" },
-      { name: "Milk", qty: "500ml" },
+      { name: "Milk", qty: "500g" },
       { name: "Butter", qty: "30g" },
       { name: "Flour", qty: "30g" },
       { name: "Bacon", qty: "150g" },
@@ -188,8 +188,8 @@ const RECIPES = [
     blurb: "Sausage meat squeezed from the casing, browned, then a smooth herby cream sauce block.",
     ingredients: [
       { name: "Sausages", qty: "6" },
-      { name: "Double cream", qty: "400ml" },
-      { name: "Chicken stock", qty: "150ml" },
+      { name: "Double cream", qty: "400g" },
+      { name: "Chicken stock", qty: "150g" },
       { name: "Dried thyme", qty: "1 tsp" },
       { name: "Garlic", qty: "2 cloves" },
       { name: "Pasta", qty: "150g" },
@@ -210,7 +210,7 @@ const RECIPES = [
     freezerBlock: true,
     blurb: "A sticky, savoury-sweet sauce block that works surprisingly well over pasta instead of rice.",
     ingredients: [
-      { name: "Soy sauce", qty: "100ml" },
+      { name: "Soy sauce", qty: "100g" },
       { name: "Honey", qty: "3 tbsp" },
       { name: "Garlic", qty: "2 cloves" },
       { name: "Ginger", qty: "1 tsp" },
@@ -276,7 +276,7 @@ const RECIPES = [
     freezerBlock: true,
     blurb: "A smoky-sweet glaze that freezes well as a block — good over rice, in a wrap, or on its own.",
     ingredients: [
-      { name: "BBQ sauce", qty: "200ml" },
+      { name: "BBQ sauce", qty: "200g" },
       { name: "Honey", qty: "2 tbsp" },
       { name: "Smoked paprika", qty: "1 tsp" },
       { name: "Chicken thighs or breast", qty: "4" },
@@ -343,7 +343,7 @@ const RECIPES = [
       { name: "Chicken breast", qty: "3" },
       { name: "Cajun seasoning", qty: "2 tbsp" },
       { name: "Rice", qty: "300g" },
-      { name: "Chicken stock", qty: "600ml" },
+      { name: "Chicken stock", qty: "600g" },
     ],
     steps: [
       "Dice the chicken, toss in Cajun seasoning, fry until browned.",
@@ -360,7 +360,7 @@ const RECIPES = [
     freezerBlock: true,
     blurb: "Same teriyaki block as the pasta version, served over rice instead.",
     ingredients: [
-      { name: "Soy sauce", qty: "100ml" },
+      { name: "Soy sauce", qty: "100g" },
       { name: "Honey", qty: "3 tbsp" },
       { name: "Garlic", qty: "2 cloves" },
       { name: "Ginger", qty: "1 tsp" },
