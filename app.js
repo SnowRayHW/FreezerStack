@@ -122,15 +122,6 @@ function renderWeek() {
 
   const blocks = [];
 
-  // breakfast note block — not randomised, just a reminder
-  blocks.push(`
-    <div class="meal-block bc-cream" style="cursor:default;">
-      <span class="day-label">Every day</span>
-      <span class="meal-name">Cereal + orange juice</span>
-      <span class="slot-tag">Breakfast</span>
-    </div>
-  `);
-
   // lunch block (batch wrap)
   blocks.push(`
     <button class="meal-block bc-${currentWeek.lunch.blockColor}" data-recipe="${currentWeek.lunch.id}">
