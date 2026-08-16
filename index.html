@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Freezer Stack — weekly shop shuffle</title>
+<title>Freezer Stack</title>
 <meta name="description" content="Shuffle a week of dinners and a batch lunch wrap, get the shopping list, no prices required." />
 <link rel="stylesheet" href="style.css" />
 </head>
@@ -23,7 +23,7 @@
   <div class="wrap">
     <p class="eyebrow">32 recipes · pasta · chicken · egg wraps · toasties</p>
     <h1>Shuffle the <span>week's</span> shop</h1>
-    <p class="lede">One tap picks 7 dinners and a batch lunch wrap from the recipe stack, then builds the shopping list. No prices — those change depending on where you shop, so it's just what to buy.</p>
+    <p class="lede">One tap picks 7 dinners and a batch lunch wrap from the recipe stack, then builds the shopping list.</p>
     <button class="shuffle-btn" id="shuffle-btn">🔀 Shuffle my week</button>
 
     <div id="week-empty" class="week-empty">Nothing shuffled yet — hit the button above.</div>
@@ -43,7 +43,7 @@
 <section class="library" id="library">
   <div class="wrap">
     <h2>Recipe stack</h2>
-    <p class="sub">Every recipe in the rotation. Peppers, chunky/raw tomato, and fresh fruit chunks are filtered out automatically — edit <code>AVOID_TAGS</code> in recipes.js to change what's excluded.</p>
+    <p class="sub">Every recipe in the rotation.</p>
     <div class="filters">
       <button class="filter-btn active" data-filter="all">All</button>
       <button class="filter-btn" data-filter="pasta">Pasta</button>
@@ -56,7 +56,7 @@
 </section>
 
 <footer class="site-foot">
-  <div class="wrap">Freezer Stack — a personal meal-shuffle tool. Edit recipes.js to add your own.</div>
+  <div class="wrap">Freezer Stack — a personal meal-shuffle tool.</div>
 </footer>
 
 <div class="modal-backdrop hidden" id="modal-backdrop">
